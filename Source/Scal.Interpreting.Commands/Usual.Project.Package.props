@@ -1,0 +1,39 @@
+﻿<Project>
+
+  <PropertyGroup                    Label="Usual project Settings">
+    <ImplicitUsings                 >disable</ImplicitUsings>
+    <Nullable                       >enable</Nullable>
+    <GenerateDocumentationFile      >true</GenerateDocumentationFile>
+    <PublishDocumentationFile       >true</PublishDocumentationFile>
+    <SatelliteResourceLanguages     >en</SatelliteResourceLanguages>
+    <ManagePackageVersionsCentrally >true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <PropertyGroup                    Label="Usual Package Metadata">
+    <PackageId                      >$(MSBuildProjectName)</PackageId>
+    <PackageVersion                 >$(Version)</PackageVersion>
+    <Authors                        >Scal-Human</Authors>
+    <AuthorAlias                    >JIC Softwares</AuthorAlias>
+    <ProjectUpdate                  >$([System.DateTime]::Now.ToString(`yyyy`))</ProjectUpdate>
+    <Copyright                      >(c) $(ProjectCreation)-$(ProjectUpdate) $(Authors) - $(AuthorAlias)</Copyright>
+    <PackageProjectUrl              >https://github.com/$(Authors)/$(MSBuildProjectName)</PackageProjectUrl>
+    <RepositoryUrl                  >https://github.com/$(Authors)/$(MSBuildProjectName).git</RepositoryUrl>
+    <RepositoryType                 >git</RepositoryType>
+    <PackageReadmeFile              >ReadMe.md</PackageReadmeFile>
+    <PackageReleaseNotes            >..\..\ChangeLog.md</PackageReleaseNotes>
+  </PropertyGroup>
+  
+  <PropertyGroup                    Label="Usual Package Settings">
+    <PublishRelease                 >true</PublishRelease>
+    <PackRelease                    >true</PackRelease>
+    <PackAsTool                     >false</PackAsTool>
+    <ToolCommandName                ></ToolCommandName>
+  </PropertyGroup>
+ 
+  <ItemGroup                        Label="Usual Package Content">
+    <Content  Pack="true"           Include="..\..\$(PackageReadmeFile)"      PackagePath="\" />
+    <Content  Pack="true"           Include="..\..\Citation.cff"              PackagePath="\" />
+    <Content  Pack="true"           Include="..\..\License.txt"               PackagePath="\" />
+  </ItemGroup>
+
+</Project>

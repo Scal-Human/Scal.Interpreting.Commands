@@ -1,0 +1,17 @@
+﻿<Project>
+
+  <PropertyGroup                    Label="Project Settings, targetting net8.0 because LTS">
+    <OutputType                     >Library</OutputType>
+    <TargetFramework                >net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup                    Label="Project Metadata">
+    <Description                    >A lightweight deterministic command-line interpreter for .NET.</Description>
+    <PackageTags                    >command-line parsing interpretation validation</PackageTags>
+    <ProjectCreation                >2026</ProjectCreation>
+    <PackageLicenseExpression       >BSD-3-Clause</PackageLicenseExpression>
+    <ApplicationIcon                >Package.ico</ApplicationIcon>
+    <PackageIcon                    >Package.ico</PackageIcon>
+  </PropertyGroup>
+   
+</Project>

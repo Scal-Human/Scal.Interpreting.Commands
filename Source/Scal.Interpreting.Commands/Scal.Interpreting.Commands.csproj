@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+  </PropertyGroup>
+
+  <Import Project="Scal.Interpreting.Commands.props" />
+  <Import Project="Usual.Project.Package.props" />
+  <Import Project="Usual.Project.Package.targets" />
+
+</Project>

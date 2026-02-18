@@ -1,0 +1,35 @@
+cff-version:  1.2.0
+title:        Scal.Interpreting.Commands
+abstract:     A lightweight deterministic command-line interpreter for .NET.
+message:      If you use this, please cite the software and the references
+authors:
+- name:         Scal-Human
+  affiliation:  JIC Softwares
+  alias:        Pascal Lengelé
+keywords:     [ command-line, parsing, interpretation, validation ]
+type:         software
+copyright:    (c) 2026 Scal - JIC Softwares
+license:      BSD-3-Clause
+references:
+
+- title:      dotnet
+  license:    MIT
+  abstract:   Home of .NET's Virtual Monolithic Repository which includes all the code needed to build the .NET SDK
+  url:        https://github.com/dotnet/dotnet
+  authors:
+  - name:     .NET Foundation and Contributor
+  keywords:   [ development, framework ]
+
+- title:      FontAwesome
+  license:    CC-BY-4.0
+  abstract:   For the icon converted from svg
+  url:        https://fontawesome.com/
+  keywords:   [ icon ]
+
+- title:      Versionize
+  license:    MIT
+  abstract:   Automatic versioning and CHANGELOG generation, with semver and conventional commits for dotnet
+  url:        https://github.com/versionize/versionize
+  authors:
+  - name:     25 contributors
+  keywords:   [ git, changelog, semantic-versioning ]
