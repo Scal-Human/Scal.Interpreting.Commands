@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [versionize](https://github.com/versionize/versionize) for commit guidelines.
 
+<a name="1.0.0"></a>
+## [1.0.0](https://www.github.com/Scal-Human/Scal.Interpreting.Commands/releases/tag/v1.0.0) (2026-02-18)
+
+### Features
+
+* v1 ([88d1af8](https://www.github.com/Scal-Human/Scal.Interpreting.Commands/commit/88d1af83ba1397645bfbf3322513fe66790c68b9))
+
+### Breaking Changes
+
+* v1 ([88d1af8](https://www.github.com/Scal-Human/Scal.Interpreting.Commands/commit/88d1af83ba1397645bfbf3322513fe66790c68b9))
+
 <a name="0.1.5"></a>
 ## [0.1.5](https://www.github.com/Scal-Human/Scal.Interpreting.Commands/releases/tag/v0.1.5) (2026-02-18)
 
