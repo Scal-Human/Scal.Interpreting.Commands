@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Xunit.Abstractions;
 
-namespace Scal.Interpreting.Commands.Tests.ByConvention;
+namespace Scal.Interpreting.Commands.Tests.ByAnnotation;
 
 public class Tests(ITestOutputHelper output)
 {
@@ -12,17 +12,17 @@ public class Tests(ITestOutputHelper output)
         [new TestData("Name field is required",             null,   "List", "Image",    "Type=1")],
         [new TestData("Name field is required",             null,   "List", "Image",    "Type=1",   "N" )],
         [new TestData("Name field is required",             null,   "List", "Image",    "Type=A",   "N" )],
-        [new TestData(null, typeof(ListImageByType),                "List", "Image",    "Type=1",   "Name=abc")],
-        [new TestData(null, typeof(ListImageByType),                "L",    "Ima",      "T=1",      "N=abc" )],
+        [new TestData(null, typeof(CmdListImageByType),             "List", "Image",    "Type=1",   "Name=abc")],
+        [new TestData(null, typeof(CmdListImageByType),             "L",    "Ima",      "T=1",      "N=abc" )],
         [new TestData("TypeId must be between 1 and 9",     null,   "List", "Image",    "Type=0",   "N=abc" )],
-        [new TestData(null, typeof(ListImageByNamespace),           "List", "Image",    "--Namespace=abc")],
-        [new TestData(null, typeof(ListImageByNamespace),           "List", "Ima",      "--Names=abc")],
+        [new TestData(null, typeof(CmdListImageByNamespace),        "List", "Image",    "--Namespace=abc")],
+        [new TestData(null, typeof(CmdListImageByNamespace),        "List", "Ima",      "--Names=abc")],
         [new TestData("Ambiguous command",                  null,   "List", "Ima",      "Name=abc")],
         [new TestData("abbreviation is ambiguous",          null,   "List", "Ima",      "N=abc")],
-        [new TestData(null, typeof(ListImport),                     "List", "Import")],
-        [new TestData(null, typeof(ListImport),                     "List", "Imp")],
+        [new TestData(null, typeof(CmdListImport),                  "List", "Import")],
+        [new TestData(null, typeof(CmdListImport),                  "List", "Imp")],
         [new TestData("Ambiguous command",                  null,   "L", "I")],
-        [new TestData(null, typeof(Cleanup),                        "Cleanup")],
+        [new TestData(null, typeof(CmdCleanup),                     "Cleanup")],
     ];
 
 

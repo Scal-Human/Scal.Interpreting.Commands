@@ -1,6 +1,6 @@
 <Project>
 
-  <Target Name="Versionize" BeforeTargets="Restore">
+  <Target Name="Versionize" BeforeTargets="Restore" Condition="1 == 2">
     <PropertyGroup>
       <VersionizeParameters>--configDir "$(MSBuildProjectDirectory)\..\..\.config"</VersionizeParameters>
       <VersionizeParameters>$(VersionizeParameters) --ignore-insignificant-commits</VersionizeParameters>
