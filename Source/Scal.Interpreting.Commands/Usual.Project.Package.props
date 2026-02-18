@@ -35,6 +35,7 @@
     <Content  Pack="true"           Include="..\..\Citation.cff"              PackagePath="\" />
     <Content  Pack="true"           Include="..\..\License.txt"               PackagePath="\" />
     <Content  Pack="true"           Include="$(PackageReleaseNotes)"          PackagePath="\" />
+    <Content  Pack="true"           Include="$(PackageIcon)"                  PackagePath="\" />
   </ItemGroup>
 
 </Project>
