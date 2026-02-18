@@ -20,7 +20,7 @@
     <RepositoryUrl                  >https://github.com/$(Authors)/$(MSBuildProjectName).git</RepositoryUrl>
     <RepositoryType                 >git</RepositoryType>
     <PackageReadmeFile              >ReadMe.md</PackageReadmeFile>
-    <PackageReleaseNotes            >..\..\ChangeLog.md</PackageReleaseNotes>
+    <PackageReleaseNotes            >ChangeLog.md</PackageReleaseNotes>
   </PropertyGroup>
   
   <PropertyGroup                    Label="Usual Package Settings">
@@ -34,6 +34,7 @@
     <Content  Pack="true"           Include="..\..\$(PackageReadmeFile)"      PackagePath="\" />
     <Content  Pack="true"           Include="..\..\Citation.cff"              PackagePath="\" />
     <Content  Pack="true"           Include="..\..\License.txt"               PackagePath="\" />
+    <Content  Pack="true"           Include="$(PackageReleaseNotes)"          PackagePath="\" />
   </ItemGroup>
 
 </Project>
