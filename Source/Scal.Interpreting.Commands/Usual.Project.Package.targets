@@ -2,8 +2,7 @@
 
   <Target Name="Versionize" BeforeTargets="Restore">
     <PropertyGroup>
-      <VersionizeParameters>--configDir "$(MSBuildProjectDirectory)\.config"</VersionizeParameters>
-      <VersionizeParameters></VersionizeParameters>
+      <VersionizeParameters>--configDir "$(MSBuildProjectDirectory)\..\..\.config"</VersionizeParameters>
       <VersionizeParameters>$(VersionizeParameters) --ignore-insignificant-commits</VersionizeParameters>
       <VersionizeParameters Condition="'$(VersionSuffix)' != ''">$(VersionizeParameters) --pre-release $(VersionSuffix)</VersionizeParameters>
       <VersionizeParameters Condition="'$(VersionSuffix)' != ''">$(VersionizeParameters) --skip-dirty</VersionizeParameters>
