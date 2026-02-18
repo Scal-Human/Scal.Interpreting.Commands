@@ -200,6 +200,10 @@ If no factory delegate is provided, Activator is used:
 ... = Activator.CreateInstance(type);
 ```
 
+## Examples
+
+To view examples, see the tests models: by convention, by annotation and with type converter.
+
 ## Thanks
 
 Thanks to Dan (aka ChatGPT) for they advices and making doubts disappear.
