@@ -11,7 +11,7 @@
     <ProjectCreation                >2026</ProjectCreation>
     <PackageLicenseExpression       >BSD-3-Clause</PackageLicenseExpression>
     <ApplicationIcon                >Package.ico</ApplicationIcon>
-    <PackageIcon                    >Package.ico</PackageIcon>
+    <PackageIcon                    >Package.png</PackageIcon>
   </PropertyGroup>
    
 </Project>
