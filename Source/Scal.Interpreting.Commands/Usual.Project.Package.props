@@ -15,7 +15,9 @@
     <Authors                        >Scal-Human</Authors>
     <AuthorAlias                    >JIC Softwares</AuthorAlias>
     <ProjectUpdate                  >$([System.DateTime]::Now.ToString(`yyyy`))</ProjectUpdate>
-    <Copyright                      >(c) $(ProjectCreation)-$(ProjectUpdate) $(Authors) - $(AuthorAlias)</Copyright>
+    <ProjectLifetime                Condition="'$(ProjectCreation)' == '$(ProjectUpdate)'">$(ProjectUpdate)</ProjectLifetime>
+    <ProjectLifetime                Condition="'$(ProjectCreation)' != '$(ProjectUpdate)'">$(ProjectCreation)-$(ProjectUpdate)</ProjectLifetime>
+    <Copyright                      >(c) $(ProjectLifetime) $(Authors) - $(AuthorAlias)</Copyright>
     <PackageProjectUrl              >https://github.com/$(Authors)/$(MSBuildProjectName)</PackageProjectUrl>
     <RepositoryUrl                  >https://github.com/$(Authors)/$(MSBuildProjectName).git</RepositoryUrl>
     <RepositoryType                 >git</RepositoryType>
