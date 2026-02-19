@@ -89,6 +89,7 @@ Simulate ListImage abc
 ## Help
 
 Executing the program without parameter will output this with the accepted abbreviations in parentheses:
+
 ```cli
 CliArgs Cli arguments interpreter example
 *** : Usage: verb (noun) (parameters)
@@ -97,7 +98,7 @@ CliArgs Cli arguments interpreter example
     Name                    The image name pattern (N)
 ```
 
-## Validation using **System.ComponentModel.DataAnnotations** attributes or your custom attributes
+## Validation using **DataAnnotations** attributes or your custom attributes
 
 Executing it with:
 
@@ -146,7 +147,7 @@ as those are the minimum required to prevent ambiguity.
 
 ## Verb-only command
 
-You may a define a verb-only command by creating a one word class like **Cleanup**,
+You may define a verb-only command by creating a one-word class like **Cleanup**,
 or by specifying a **Namespace** in a **DataContract** without **Name**:
 
 ```c#
