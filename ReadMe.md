@@ -24,6 +24,7 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 - dependency-free
 - DI-agnostic construction
 - .Net 8.0 LTS compatible (console or ASP.NET)
+- lightweight (425 lines in total including comments, 4 classes and 2 extensions) 
 
 ## Usage example
 
@@ -31,10 +32,7 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 dotnet add package Scal.Interpreting.Commands
 ```
 
-<details open="true">
-    <summary>
-    Example of a program accepting as <b>List Image Name=abc</b> command
-    </summary>
+Example of a program accepting as **List Image Name=abc** command
 
 ```c#
 [DataContract(Name = "CliArgs")]
@@ -75,14 +73,14 @@ public abstract class Program
     }
 }
 ```
-</details>
 
 Mention that:
-- the Program itself is an abstract with just an entrypoint and the **ExecuteAsync** contract
+- the **Program** itself is an abstract with just an entrypoint and the **ExecuteAsync** contract
+- commands are classes deriving from **Program** containg the methods you desire (ExecuteAsync in the example)
 - it is derived in a **ListImage** class that is instantiated
 - I choose to output the feedback without help in case of success which shows the program title
 
-Executing it with <b>List Image Name=abc</b> or <b>L I N=abc</b> gives:
+Executing it with **List Image Name=abc** or **L I N=abc** gives:
 ```cli
 CliArgs Cli arguments interpreter example
 Simulate ListImage abc
@@ -101,7 +99,16 @@ CliArgs Cli arguments interpreter example
 
 ## Validation using **System.ComponentModel.DataAnnotations** attributes or your custom attributes
 
-Executing it with <b>List Image Name= Type=10</b> or <b>L I N= T=10</b> gives:
+Executing it with:
+
+```cli
+CliArgs.exe List Image Name= Type=10
+or
+CliArgs.exe L I N= T=10
+```
+
+gives:
+
 ```cli
 CliArgs Cli arguments interpreter example
 *** TypeId: The field TypeId must be between 1 and 9.
@@ -113,10 +120,7 @@ CliArgs Cli arguments interpreter example
 
 ## New ListImport command without attribute
 
-<details open="true">
-    <summary>
-    When adding a new command <b>List Import</b> to the same program:
-    </summary>
+When adding a new command **List Import** to the same program:
 
 ```c#
     public class ListImportWithoutParameter : Program
@@ -128,7 +132,6 @@ CliArgs Cli arguments interpreter example
         }
     }
 ```
-</details>
 
 Mention that:
 - The class does not require any attribute and VerbNoun is extracted using the first two words of the class name Pascal-casing
@@ -143,11 +146,8 @@ as those are the minimum required to prevent ambiguity.
 
 ## Verb-only command
 
-<details open="true">
-    <summary>
-    You may a define a verb-only command by creating a one word class like <b>Cleanup</b>,
-    or by specifying a <b>Namespace</b> in a <b>DataContract</b> without <b>Name</b>:
-    </summary>
+You may a define a verb-only command by creating a one word class like **Cleanup**,
+or by specifying a **Namespace** in a **DataContract** without **Name**:
 
 ```c#
     public class Cleanup : Program
@@ -159,14 +159,10 @@ as those are the minimum required to prevent ambiguity.
         }
     }
 ```
-</details>
 
 ## Type converter and custom validation
 
-<details open="true">
-    <summary>
-    Custom type converter and custom validation may be used:
-    </summary>
+Custom type converter and custom validation may be used:
 
 ```c#
     public class SomeCommand : Program
@@ -183,7 +179,6 @@ as those are the minimum required to prevent ambiguity.
         }
     }
 ```
-</details>
 
 ## Factory constructor
 

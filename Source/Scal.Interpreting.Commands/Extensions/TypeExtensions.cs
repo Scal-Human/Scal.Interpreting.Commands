@@ -16,5 +16,5 @@ public static class TypeExtensions
         foreach (var type in baseType.Assembly.GetTypes().Where(type => baseType.IsAssignableFrom(type))) {
             yield return type;
         }
-    }    
+    }
 }
