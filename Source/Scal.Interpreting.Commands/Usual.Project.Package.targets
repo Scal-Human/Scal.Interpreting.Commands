@@ -1,9 +1,9 @@
 <Project>
 
   <Target Name="SetPackageReleaseNotes" BeforeTargets="GenerateNuspec"
-          Condition="'$(PackageReleaseNotes)' != ''">
+          Condition="'$(PackageReleaseNotesFile)' != ''">
     <PropertyGroup>
-      <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\$(PackageReleaseNotes)"))</PackageReleaseNotes>
+      <PackageReleaseNotes>$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\$(PackageReleaseNotesFile)"))</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
 
