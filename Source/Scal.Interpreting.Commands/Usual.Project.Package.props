@@ -22,7 +22,7 @@
     <RepositoryUrl                  >https://github.com/$(Authors)/$(MSBuildProjectName).git</RepositoryUrl>
     <RepositoryType                 >git</RepositoryType>
     <PackageReadmeFile              >ReadMe.md</PackageReadmeFile>
-    <PackageReleaseNotes            >$([System.IO.File]::ReadAllText("$(MSBuildProjectDirectory)\ChangeLog.md"))</PackageReleaseNotes>
+    <PackageReleaseNotes            >$(MSBuildProjectDirectory)\ChangeLog.md"</PackageReleaseNotes>
   </PropertyGroup>
   
   <PropertyGroup                    Label="Usual Package Settings">
