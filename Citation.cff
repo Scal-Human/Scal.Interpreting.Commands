@@ -6,7 +6,7 @@ authors:
 - name:         Scal-Human
   affiliation:  JIC Softwares
   alias:        Pascal Lengelé
-keywords:     [ command-line, cli, parser, interpreter, validation, dotnet, net8 ]
+keywords:     [ command-line, cli, parser, interpreter, validation, strongly-typed, dotnet, net8 ]
 type:         software
 copyright:    (c) 2026 Scal - JIC Softwares
 license:      BSD-3-Clause
