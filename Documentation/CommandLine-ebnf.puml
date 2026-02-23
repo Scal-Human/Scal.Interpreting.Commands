@@ -1,0 +1,13 @@
+@startebnf
+!theme blueprint
+Arguments = verb, [ " ", noun ] ,
+    {
+        " ", { "-" (* As many\n dashes\n as you want *) },
+            (
+                name, [ "=",
+                    ( value | ( '"', value, '"') )
+                ]
+                (* Optional for boolean 'true' *)
+            )
+    };
+@end

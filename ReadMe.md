@@ -24,7 +24,11 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 - dependency-free
 - DI-agnostic construction
 - .Net 8.0 LTS compatible (console or ASP.NET)
-- lightweight (425 lines in total including comments, 4 classes and 2 extensions) 
+- lightweight (425 lines in total including comments, 4 classes and 2 extensions)
+
+## Syntax
+
+![CommandLine-ebnf](Documentation/CommandLine-ebnf.svg)
 
 ## Usage example
 
