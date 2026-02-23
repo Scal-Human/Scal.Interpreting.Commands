@@ -1,12 +1,12 @@
 cff-version:  1.2.0
 title:        Scal.Interpreting.Commands
-abstract:     A lightweight, deterministic command-line interpreter for .NET 8 with attribute-based validation and type conversion.
+abstract:     A lightweight, deterministic command-line interpreter for DotNet with attribute-based validation and type conversion.
 message:      If you use this, please cite the software and the references
 authors:
 - name:         Scal-Human
   affiliation:  JIC Softwares
   alias:        Pascal Lengelé
-keywords:     [ command-line, cli, parser, interpreter, validation, strongly-typed, dotnet, net8 ]
+keywords:     [ command-line, cli, interpreter, parser, strongly-typed, validation, dotnet, net8 ]
 type:         software
 copyright:    (c) 2026 Scal - JIC Softwares
 license:      BSD-3-Clause

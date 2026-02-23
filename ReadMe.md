@@ -1,6 +1,6 @@
 # Scal.Interpreting.Commands
 
-A lightweight, deterministic command-line interpreter for .NET 8 with attribute-based validation and type conversion.
+A lightweight, deterministic command-line interpreter for DotNet with attribute-based validation and type conversion.
 
 Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreting.Commands** prioritizes deterministic resolution and minimal dependencies.
 

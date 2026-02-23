@@ -7,7 +7,7 @@
 
   <PropertyGroup                    Label="Project Metadata">
     <Description                    >A lightweight, deterministic command-line interpreter for .NET 8 with attribute-based validation and type conversion.</Description>
-    <PackageTags                    >command-line cli parser interpreter validation strongly-typed dotnet net8</PackageTags>
+    <PackageTags                    >command-line cli interpreter parser strongly-typed validation dotnet net8</PackageTags>
     <ProjectCreation                >2026</ProjectCreation>
     <PackageLicenseExpression       >BSD-3-Clause</PackageLicenseExpression>
     <ApplicationIcon                >Package.ico</ApplicationIcon>
