@@ -1,0 +1,14 @@
+@startebnf
+!theme blueprint
+SkinParam BackgroundColor #222
+Arguments = verb, [ " ", noun ] ,
+    {
+        " ", { "-" (* As many\n dashes\n as you want *) },
+            (
+                name, [ "=",
+                    ( value | ( '"', value, '"') )
+                ]
+                (* Optional for switch (boolean true) *)
+            )
+    };
+@end

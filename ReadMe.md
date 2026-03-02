@@ -8,23 +8,31 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 
 ### Philosophy
 
-- simple deterministic grammar: **verb (noun) (arguments)**
-- case-insensitive
-- dash-tolerant but dash-agnostic
-- accept abbreviations but detect collisions
-- bulletproof and predictable behavior
+- Simple deterministic grammar: **verb (noun) (arguments)**
+- Case-insensitive
+- Dash-tolerant but dash-agnostic
+- Accept abbreviations but detect collisions
+- Bulletproof and predictable behavior
 
 ### Technical features
 
-- verb/noun definition by attributes or Pascal-case naming convention
-- strongly-typed command instantiation
-- validation via DataAnnotations
+- Verb/noun definition by attributes or Pascal-case naming convention
+- Strongly-typed command instantiation
+- Validation via DataAnnotations
 - TypeConverter support
-- contextual help generation
-- dependency-free
+- Contextual help generation
+- Dependency-free
 - DI-agnostic construction
-- .Net 8.0 LTS compatible (console or ASP.NET)
-- lightweight (425 lines in total including comments, 4 classes and 2 extensions) 
+- DotNet 8.0 LTS compatible (console or AspNet)
+- Lightweight (425 lines in total including comments, 4 classes and 2 extensions)
+
+## Dependencies
+
+None.
+
+## Syntax
+
+![CommandLine-ebnf](https://raw.githubusercontent.com/Scal-Human/Scal.Interpreting.Commands/refs/heads/main/Documentation/CommandLine-ebnf.svg)
 
 ## Usage example
 
@@ -80,7 +88,14 @@ Mention that:
 - it is derived in a **ListImage** class that is instantiated
 - I choose to output the feedback without help in case of success which shows the program title
 
-Executing it with **List Image Name=abc** or **L I N=abc** gives:
+Executing:
+
+```cli
+CliArgs.exe List Image Name=abc
+or
+CliArgs.exe L I N=abc
+```
+gives:
 ```cli
 CliArgs Cli arguments interpreter example
 Simulate ListImage abc

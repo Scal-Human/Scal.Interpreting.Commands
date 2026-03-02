@@ -26,6 +26,15 @@ references:
   url:        https://fontawesome.com/
   keywords:   [ icon ]
 
+- title:      PlantUml
+  license:    GPLv3
+  abstract:   PlantUML is a highly versatile tool that facilitates the rapid and straightforward creation of a wide array of diagrams
+  url:        https://plantuml.com
+  authors:
+  - given-names:  Arnaud
+    family-names: Roques
+  keywords:   [ diagram, text-based, generation ]
+
 - title:      Versionize
   license:    MIT
   abstract:   Automatic versioning and CHANGELOG generation, with semver and conventional commits for dotnet
