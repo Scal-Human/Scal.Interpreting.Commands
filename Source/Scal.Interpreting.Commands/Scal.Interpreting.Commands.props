@@ -1,6 +1,6 @@
 ﻿<Project>
 
-  <PropertyGroup                    Label="Project Settings, targetting net8.0 because LTS">
+  <PropertyGroup                    Label="Project Settings, targetting LTS">
     <OutputType                     >Library</OutputType>
     <TargetFrameworks               >net8.0;net10.0</TargetFrameworks>
   </PropertyGroup>
