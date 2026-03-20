@@ -215,7 +215,7 @@ If no factory delegate is provided, Activator is used:
 
 ## Examples
 
-To view examples, see the tests models: by convention, by annotation and with type converter.
+To view examples, see the [tests models](https://github.com/Scal-Human/Scal.Interpreting.Commands/tree/main/Source/Scal.Interpreting.Commands.Tests): by convention, by annotation and with type converter.
 
 ## Thanks
 
