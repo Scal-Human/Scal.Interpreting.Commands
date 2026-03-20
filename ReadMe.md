@@ -23,8 +23,8 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 - Contextual help generation
 - Dependency-free
 - DI-agnostic construction
-- DotNet 8.0 LTS compatible (console or AspNet)
-- Lightweight (425 lines in total including comments, 4 classes and 2 extensions)
+- DotNet 8.0 and 10.0 LTS compatible (console or AspNet)
+- Lightweight (total 425 lines including comments, 4 classes and 2 extensions)
 
 ## Dependencies
 
@@ -158,7 +158,8 @@ In such a case, use a **DataContract** attribute to clarify your intent.
 - The abbreviations now become **l ima** for **List Image** and **l imp** for **List Import**
 as those are the minimum required to prevent ambiguity.
 
-> :warning: Please note that abbreviations **should never** be used is scripts or documentation for many reasons
+> [!WARNING]
+> Please note that abbreviations **should never** be used is scripts or documentation for many reasons
 (clarity, newbie-friendly), including the fact that they may change by adding new commands.
 
 ## Verb-only command
