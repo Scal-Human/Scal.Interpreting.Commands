@@ -10,7 +10,7 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 
 I needed a parameters interpreter that do not require me to remember how many dashes it requires, that allows to differentiate similar commands with different parameters, and that supports abbreviations while detecting ambiguity.
 
-See [Why Scal.Interpreting.Commands exists](https://raw.githubusercontent.com/Scal-Human/Scal.Interpreting.Commands/refs/heads/main/Documentation/Why.md) for more information.
+See [Why Scal.Interpreting.Commands exists](Documentation/Why.md) for more information.
 
 ### Philosophy
 
