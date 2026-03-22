@@ -8,7 +8,8 @@
     </PropertyGroup>
   </Target>
 
-  <Target Name="Versionize" BeforeTargets="Restore" Condition="'$(Configuration)' == 'Release'">
+  <Target Name="Versionize" BeforeTargets="Restore"
+    Condition="('$(Configuration)' == 'Release') And ('$(Versionize)' == 'true')">
     <PropertyGroup>
       <VersionizeParameters>--configDir "$(MSBuildProjectDirectory)\..\..\.config"</VersionizeParameters>
       <VersionizeParameters Condition="'$(VersionSuffix)' != ''">$(VersionizeParameters) --pre-release $(VersionSuffix)</VersionizeParameters>

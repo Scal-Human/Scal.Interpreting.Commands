@@ -2,9 +2,13 @@
 
 A lightweight, deterministic command-line interpreter for DotNet with attribute-based validation and type conversion.
 
-Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreting.Commands** prioritizes deterministic resolution and minimal dependencies.
+## Purpose
 
-## Motivation
+Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreting.Commands** prioritizes deterministic resolution of strongly-typed commands without dependencies.
+
+### Motivation
+
+I needed a parameters interpreter that do not require me to remember how many dashes it requires, that allows to differentiate similar commands with different parameters, and that supports abbreviations while detecting ambiguity.
 
 ### Philosophy
 
@@ -14,7 +18,18 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 - Accept abbreviations but detect collisions
 - Bulletproof and predictable behavior
 
-### Technical features
+## Design
+
+### Principles
+
+- A base class is derived into different commands. I use **Program** but you may use anything you like.
+- The commands have properties that are their parameters, possibly annotated with validation attributes and type converters.
+- The base class is given to the interpreter which selects the appropriate derived command and instantiate it.
+- Instantiation delegate may be provided if you need dependency injection support.
+- In case of error or ambiguity, no command is instantiated and the **Results** property of the interpretation contains the list of errors.
+- Help is provided by calling the **Feedback** method of the interpretation with a delegate (**Console.Writeline**, **List.Add**, ...).
+
+## Features
 
 - Verb/noun definition by attributes or Pascal-case naming convention
 - Strongly-typed command instantiation
@@ -26,21 +41,15 @@ Unlike reflection-heavy or attribute-mandatory CLI frameworks, **Scal.Interpreti
 - DotNet 8.0 and 10.0 LTS compatible (console or AspNet)
 - Lightweight (total 425 lines including comments, 4 classes and 2 extensions)
 
-## Dependencies
+## Usage
 
-None.
-
-## Syntax
+### Syntax
 
 ![CommandLine-ebnf](https://raw.githubusercontent.com/Scal-Human/Scal.Interpreting.Commands/refs/heads/main/Documentation/CommandLine-ebnf.svg)
 
-## Usage example
+### Annotated example
 
-```cli
-dotnet add package Scal.Interpreting.Commands
-```
-
-Example of a program accepting as **List Image Name=abc** command
+Example of a program accepting as **List Image Name=abc** command:
 
 ```c#
 [DataContract(Name = "CliArgs")]
@@ -83,11 +92,11 @@ public abstract class Program
 ```
 
 Mention that:
-- The **Program** itself is an abstract with just an entrypoint and the **ExecuteAsync** contract
-- Commands are classes deriving from **Program** containg the methods you desire (ExecuteAsync in the example)
-- It is derived in a **ListImage** class that is instantiated
-- Help is generated using text from **DesriptionAttribute**
-- I choose to output the feedback without help in case of success which shows the program title
+- The **Program** itself is an abstract with just an entrypoint and the **ExecuteAsync** contract.
+- Commands are classes deriving from **Program** containg the methods you desire (ExecuteAsync in the example).
+- It is derived in a **ListImage** class that is instantiated.
+- Help is generated using text from **DesriptionAttribute**.
+- I choose to output the feedback without help in case of success which shows the program title.
 
 Executing:
 
@@ -102,7 +111,7 @@ CliArgs Cli arguments interpreter example
 Simulate ListImage abc
 ```
 
-## Help
+### Help example
 
 Executing the program without parameter will output this with the accepted abbreviations in parentheses:
 
@@ -114,9 +123,9 @@ CliArgs Cli arguments interpreter example
     Name                    The image name pattern (N)
 ```
 
-## Validation using **DataAnnotations** attributes or your custom attributes
+### Example of validation using **DataAnnotations** attributes
 
-Executing it with:
+Executing the example above with:
 
 ```cli
 CliArgs.exe List Image Name= Type=10
@@ -135,7 +144,7 @@ CliArgs Cli arguments interpreter example
     Name                    The image name pattern (N)
 ```
 
-## New ListImport command without attribute
+### Example of new ListImport command without attribute
 
 When adding a new command **List Import** to the same program:
 
@@ -151,7 +160,7 @@ When adding a new command **List Import** to the same program:
 ```
 
 Mention that:
-- The class does not require any attribute and VerbNoun is extracted using the first two words of the class name Pascal-casing
+- The class does not require any attribute and VerbNoun is extracted using the first two words of the class name Pascal-casing.
 - Acronyms such as XML or HTTP will be split into individual letters unless explicitly configured using attributes,
 e.g. a **ListXMLFile** will be interpreted as **List X** by convention.
 In such a case, use a **DataContract** attribute to clarify your intent.
@@ -162,7 +171,53 @@ as those are the minimum required to prevent ambiguity.
 > Please note that abbreviations **should never** be used is scripts or documentation for many reasons
 (clarity, newbie-friendly), including the fact that they may change by adding new commands.
 
-## Verb-only command
+### Example of ambiguity detection and contextual help
+
+If you have the following two commands (taken from tests):
+
+```c#
+
+internal class ListImageByType : Program
+{
+    [Required]
+    public string Name { get; set; } = string.Empty;
+    [Range(1, 9)]
+    public int TypeId { get; set; }
+}
+
+internal class ListImageByNamespace : Program
+{
+    public string Name { get; set; } = string.Empty;
+    public string Namespace { get; set; } = string.Empty;
+}
+
+```
+
+Trying to execute the program with:
+
+```cli
+CliArgs.exe List Image Name=abc
+```
+
+gives:
+
+```cli
+CliArgs Cli arguments interpreter example
+List Image Name=abc
+*** : Ambiguous command: List Image
+    List     Image             (L Ima)
+      Name                     (N)
+      TypeId                   (T)
+    List     Image             (L Ima)
+      Name                     (Name)
+      Namespace                (Names)
+```
+
+Mention that:
+- This allows to have mutually exclusive parameters isolated in different commands simplifying implementation.
+- Help is contextual and only shows the ambiguous commands.
+
+### Example of verb-only command
 
 You may define a verb-only command by creating a one-word class like **Cleanup**,
 or by specifying a **Namespace** in a **DataContract** without **Name**:
@@ -178,7 +233,7 @@ or by specifying a **Namespace** in a **DataContract** without **Name**:
     }
 ```
 
-## Type converter and custom validation
+### Example with type converter and custom validation
 
 Custom type converter and custom validation may be used:
 
@@ -198,7 +253,7 @@ Custom type converter and custom validation may be used:
     }
 ```
 
-## Factory constructor
+### Example of factory constructor
 
 You may provide a factory delegate to integrate with your preferred DI framework:
 
@@ -213,9 +268,34 @@ If no factory delegate is provided, Activator is used:
 ... = Activator.CreateInstance(type);
 ```
 
-## Examples
+### Test examples
 
 To view examples, see the [tests models](https://github.com/Scal-Human/Scal.Interpreting.Commands/tree/main/Source/Scal.Interpreting.Commands.Tests): by convention, by annotation and with type converter.
+
+## Integration
+
+```cli
+dotnet add package Scal.Interpreting.Commands
+```
+
+### Dependencies
+
+None.
+
+### Customization
+
+- The [**DataContractAttribute**](https://learn.microsoft.com/en-us/dotnet/api/system.runtime.serialization.datacontractattribute) may be used to specify the verb (**Namespace**) and the noun (**Name**) of the command.
+- The [**DescriptionAttribute**](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.descriptionattribute) may be used to provide the help text concerning a command or a parameter.
+- You may decorate properties with attributes deriving from [**ValidationAttribute**](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.validationattribute), either custom or standard ones such as [**RequiredAttribute**](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations.requiredattribute).
+
+## Extensibility
+
+You man add as many commands as you want as long as there is no ambiguity on how to call them, i.e. at least one different parameter.
+
+## Notes
+
+- Even if a parameter is not annotated as required, it is needed when it is the only difference between two commands.
+- Commands are discovered by searching the assembly of the base class given to the interpreter.
 
 ## Thanks
 
