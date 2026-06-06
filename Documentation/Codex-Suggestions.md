@@ -19,7 +19,7 @@ Based on the current scope (deterministic verb/noun resolution, typed params, Da
 - Shell completion generation (Bash/PowerShell/Zsh).
 - Built-in typo suggestions (“Did you mean …?” for verb/noun/param).
 - Command aliases (stable synonyms, not only abbreviations).
-- Default values from environment variables (e.g., APP_REGION).
+- Default values from environment variables (e.g., APP_REGION), or from dictionary or custom delegate.
 - Mutually-exclusive parameter groups (first-class conflict rules).
 - Dry-run / parse-only mode (validate + show bound command without execute).
 - Localization for help/errors (multilingual CLI UX).
@@ -37,6 +37,7 @@ Other possible features (Scal):
 - Preprocessing for parameters required before command instantiation with DI.
 - Help for enum-based parameters.
 - Array parameters (can currently be achived with adhoc property parsing).
+- Default command when no paramater supplied.
 
 ---
 
